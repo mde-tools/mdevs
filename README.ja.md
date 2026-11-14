@@ -83,7 +83,7 @@ Visual Studio の「ツール」→「オプション」→「mdevs」→「Disp
 | `mdevs/NavigationCapture.cs` | 「検索結果」から開いた時に、その箇所を表示する |
 | `mdevs/MdevsOptionsPage.cs`・`MdevsSettings.cs`・`registration.json` | 「ツール」→「オプション」の設定 |
 | `mdevs/UiThread.cs`・`Log.cs` | UI スレッドでの処理、動作の記録（「出力」ウィンドウの「mdevs」） |
-| `mdevs/dialog/` | 「表を挿入…」「リンクにする…」のダイアログ |
+| `mdevs/dialog/` | 「表を挿入…」「リンクにする…」「リンクを編集…」のダイアログ |
 | `mdevs/help/HELP.md`・`HELP.en.md` | ヘルプの日本語・英語（右クリックの「ヘルプを開く」で、読み取り専用で開く。編集画面の言語のものを開く） |
 | `mdevs/web/` | 画面（HTML・JavaScript・CSS）。`js/i18n.js` は画面の英語（日本語の文字をキーにした辞書） |
 | `mdevs/Text.cs` | 拡張機能が出すお知らせ・ダイアログの英語（日本語の文字をキーにした辞書） |

@@ -510,8 +510,8 @@ namespace mdevs
                     ShowTableSizeDialog();
                     break;
                 case "linkDialog":
-                    // 右クリックのメニュー「リンクにする…」
-                    ShowLinkDialog();
+                    // 右クリックのメニュー「リンクにする…」「リンクを編集…」（編集の時は、今のリンク先を value で受け取る）
+                    ShowLinkDialog((string)msg["value"] ?? "", true == (bool?)msg["edit"]);
                     break;
                 default:
                     Log.Write($"未対応のメッセージ：{cmd}");
@@ -602,10 +602,14 @@ namespace mdevs
             Post(new { cmd = "tableSize", rows = ok ? tableDialog.Rows : 0, cols = ok ? tableDialog.Columns : 0 });
         }
 
-        /// <summary>「リンクにする…」：URL を入力するダイアログを出し、結果を画面側に linkUrl で知らせる（取りやめた時は空）。</summary>
-        private void ShowLinkDialog()
+        /// <summary>
+        /// 「リンクにする…」「リンクを編集…」：URL を入力するダイアログを出し、結果を画面側に linkUrl で知らせる（取りやめた時は空）。
+        /// </summary>
+        /// <param name="a_url">入力欄に最初から入れておく URL（リンクを編集する時の、今のリンク先）。</param>
+        /// <param name="a_edit">リンクを編集する時か（ダイアログの題名を「リンクを編集」にする）。</param>
+        private void ShowLinkDialog(string a_url, bool a_edit)
         {
-            var linkDialog = new dialog.LinkInputDialog();
+            var linkDialog = new dialog.LinkInputDialog(a_url, a_edit);
             bool ok = true == linkDialog.ShowDialog();
             m_webView.Focus();
             Post(new { cmd = "linkUrl", url = ok ? linkDialog.Url : "" });

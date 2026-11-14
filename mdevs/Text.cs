@@ -36,6 +36,7 @@ namespace mdevs
             ["列数"] = "Columns",
             ["挿入"] = "Insert",
             ["リンク"] = "Link",
+            ["リンクを編集"] = "Edit Link",
             ["リンク先のURLを入力してください"] = "Enter the URL of the link",
         };
 

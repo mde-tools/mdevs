@@ -94,7 +94,7 @@ a relative path to that folder is written into the document.
 | `mdevs/NavigationCapture.cs` | Shows the match when a file is opened from "Find Results" |
 | `mdevs/MdevsOptionsPage.cs`, `MdevsSettings.cs`, `registration.json` | Settings under Tools > Options |
 | `mdevs/UiThread.cs`, `Log.cs` | Work on the UI thread, and the log (the "mdevs" pane of the Output window) |
-| `mdevs/dialog/` | The "Insert Table…" and "Make Link…" dialogs |
+| `mdevs/dialog/` | The "Insert Table…", "Make Link…", and "Edit Link…" dialogs |
 | `mdevs/help/HELP.en.md`, `HELP.md` | Help in English / Japanese (opened read-only from the right-click menu → Open Help. The one for the language of the editor is opened) |
 | `mdevs/web/` | Editor screen (HTML, JavaScript, CSS). `js/i18n.js` holds the English text of the screen (the Japanese text is the key) |
 | `mdevs/Text.cs` | English text of the messages and dialogs shown by the extension (the Japanese text is the key) |

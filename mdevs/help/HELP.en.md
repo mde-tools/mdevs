@@ -56,8 +56,13 @@ The light or dark appearance follows the Visual Studio color theme
 |---|---|
 | Save | `Ctrl+S` (Visual Studio File > Save) |
 | Save as | Visual Studio File > Save As |
-| Undo / redo | `Ctrl+Z` / `Ctrl+Y` |
+| Undo / redo | `Ctrl+Z` / `Ctrl+Y` (`Ctrl+Shift+Z` also redoes) |
+| Cut / copy / paste | `Ctrl+X` / `Ctrl+C` / `Ctrl+V` (also from the right-click menu) |
+| Select all | `Ctrl+A` (right-click → "Select All") |
 | Close | Close the Visual Studio tab |
+
+The right-click menu can also be used with the keyboard (Up / Down to choose an item, Enter to run it, Right to open a
+submenu and Left to close it, Esc to close the menu).
 
 When there are unsaved changes, a "*" appears in the tab name. Confirmation when closing,
 and reloading when another app changes the file, work just as they do for text files in Visual Studio.
@@ -86,10 +91,10 @@ Formatting is shown as it will look, right in the editing area.
 | Highlight | `==text to highlight==` |
 | Inline code | `` `text to make code` ``, or select text and press `` Ctrl+Shift+` `` (on a Japanese keyboard, the key at the position of `Ctrl+Shift+@`) |
 | Bulleted list | `-` (or `*`, `+`) followed by a space at the start of a line |
-| Numbered list | A number and a period, such as `1.`, followed by a space at the start of a line |
+| Numbered list | A number and a period, such as `1.`, followed by a space at the start of a line (a closing parenthesis such as `1)` also works; starting with a number other than 1, such as `3.`, starts the list at that number) |
 | Check box | `[ ]` (unchecked) or `[x]` (checked) followed by a space, at the start of a list item or at the start of a table cell (except in the header row; in a table cell, the space can be omitted) |
-| Horizontal rule | Type `---` and press Enter |
-| Code block | Type `` ``` `` at the start of a line (optionally followed by a language name: `` ```csharp ``) and press Enter |
+| Horizontal rule | Type `---` (or `***`, `___`) and press Enter |
+| Code block | Type `` ``` `` (or `~~~`) at the start of a line (optionally followed by a language name: `` ```csharp ``) and press Enter |
 | Table | Type something like `|Header 1|Header 2|` and press Enter |
 | Link | `[text to show](URL)`, or `<https://...>` |
 | Email link | `<name@example.com>` |
@@ -122,6 +127,7 @@ or turn it back into body text (the current level has a ✓).
   and moves the nested items under the previous item (as in Word)
 
 Click a check box to check or uncheck it.
+Press Enter in a check box item, and the next item also gets a check box.
 Press BackSpace at the start of a check box item to remove the check box and make it a normal item.
 
 You can also put a check box at the start of a table cell (except in the header row).
@@ -132,12 +138,16 @@ show it as the text `[ ]`). Press BackSpace at the start of the cell to remove t
 ### Headings and quotes
 
 Press BackSpace at the start of a heading to turn it back into a normal paragraph. Press BackSpace at the start of a
-quote to remove the quote. Press Enter on the last, empty line of a quote to leave the quote.
+quote to remove the quote. Press Enter on the last, empty line of a quote to leave the quote. Inside a quote, `# `, `- `, and `1. ` at the start of a line
+also make headings and lists.
 
 ### Code blocks
 
 Inside a code block, Enter inserts a line break. **Tab** inserts a tab character. To leave a code block,
-click the line above or below it.
+click the line above or below it. Text pasted into a code block is inserted as is, without formatting.
+
+Pressing BackSpace at the start of a code block that has text does not join it to the previous paragraph (so that the code
+does not mix into the body text). An empty code block can be removed with BackSpace.
 
 ### Pasting
 
@@ -148,6 +158,9 @@ headings, bold, italic, strikethrough, links, inline code, code blocks, quotes, 
 Decorations such as text color and size are dropped). To paste without formatting,
 use **Ctrl+Shift+V** (or right-click → "Paste without Formatting"). Copied images
 are pasted as images (see [Images](#images)).
+
+When you paste into a table cell, line breaks are joined into one line (a range from Excel is pasted as the cell texts
+side by side). When you paste a bulleted list into a list item, the items are added after the current item.
 
 ### Line breaks within a paragraph
 
@@ -166,7 +179,12 @@ You can also right-click → "Insert Table…" and specify the number of rows (i
 and columns to create an empty table (it is created after the paragraph you right-clicked; on an empty paragraph,
 that paragraph becomes the table).
 
-- **Tab** / **Shift+Tab**: move to the next / previous cell. Pressing Tab in the last cell adds a row.
+- **Tab** / **Shift+Tab**: move to the next / previous cell (the text in that cell is selected). Pressing Tab in the last cell adds a row.
+- **Enter**: moves to the cell below (in the last row, moves to the paragraph after the table).
+- **Shift+Enter**: inserts a line break inside the cell (saved as `<br>`).
+- **Up** / **Down**: in a cell with several lines, moves between the lines. On the top / bottom line, moves to the cell
+  above / below (in the first / last row of the table, moves to the paragraph before / after the table). When you
+  enter a table with Up / Down from the paragraph before or after it, the cursor goes to the cell at the same horizontal position.
 - **Ctrl+Enter**: inserts a row below.
 - Right-click on a table cell to insert or delete rows and columns, copy the table, or delete the table.
 
@@ -191,7 +209,9 @@ Images with an absolute path such as `C:\...` are also shown.
 You can paste an image from the clipboard (such as a screenshot) with `Ctrl+V`. A pasted image is
 **kept in a temporary folder until you save**; when you save, it is moved
 into a `<file name>.images` folder next to the file you are editing (if a file with the same name exists,
-a number is added so that it does not overwrite it).
+a number is added so that it does not overwrite it). After pasting, the line is broken after the image and the cursor
+moves to the start of the next line (inside a list item or a table cell, the line break stays in the same item or cell;
+in a heading, a new paragraph is added after the heading).
 
 Double-click an image, or right-click → "Open Image", to open it in the default Windows app for images
 (such as Photos).
@@ -207,6 +227,13 @@ move the cursor with the arrow keys. When you hover over a link, its target is s
   after it, or press Enter.
 - `#heading` links: move to that heading in the document.
 - Links to a Markdown file with a relative path (such as `other.md`): open that file in another Visual Studio tab.
+
+Right-click a link → "Link" for these commands (same as mde):
+
+- **Open Link**: opens the link, just like clicking it.
+- **Copy URL**: copies the link's URL.
+- **Edit Link…**: lets you enter a new URL for the link (the link text stays the same).
+- **Remove Link**: removes the link and leaves plain text.
 
 ## Outline
 
@@ -260,15 +287,20 @@ Changes are applied immediately to all open editors.
 | `Ctrl+S` | Save |
 | `Ctrl+F` / `Ctrl+H` | Find and replace (the Visual Studio "Find and Replace" window) |
 | `F3` / `Shift+F3` | Find next / find previous |
-| `Ctrl+Z` / `Ctrl+Y` | Undo / redo |
+| `Ctrl+Z` / `Ctrl+Y` (`Ctrl+Shift+Z`) | Undo / redo |
+| `Ctrl+X` / `Ctrl+C` / `Ctrl+V` | Cut / copy / paste |
+| `Ctrl+A` | Select all |
 | `Ctrl+B` / `Ctrl+I` / `Ctrl+U` | Bold / italic / underline |
 | `Alt+Shift+5` | Strikethrough |
 | `` Ctrl+Shift+` `` | Inline code |
 | `Ctrl+Shift+V` | Paste without formatting |
+| `Enter` (in a table) | Move to the cell below |
+| `Up` / `Down` (in a table) | Move between the lines in a cell (from the top / bottom line, move to the cell above / below) |
 | `Ctrl+Enter` (in a table) | Insert a row below |
 | `Tab` / `Shift+Tab` | Indent / outdent (lists), next / previous cell (tables) |
-| `Shift+Enter` | Line break inside a paragraph or list item |
+| `Shift+Enter` | Line break inside a paragraph, list item, or table cell |
 | `Ctrl++` / `Ctrl+-` / `Ctrl+0` | Zoom in / zoom out / reset zoom to 100% (Ctrl+mouse wheel also zooms) |
+| `F12` | Developer tools for the editor (for troubleshooting) |
 
 Keys not listed above (`Ctrl+Tab`, `F5`, `Ctrl+Shift+B`, etc.) work as Visual Studio shortcuts.
 

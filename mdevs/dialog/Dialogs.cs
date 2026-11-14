@@ -1,7 +1,7 @@
 ﻿// Dialogs.cs
 //
 // mdevs（mdew の Visual Studio 版）の一部。
-// 右クリックのメニュー「表を挿入…」「リンクにする…」のダイアログ（mdew の dialog\TableSizeDialog・LinkInputDialog と
+// 右クリックのメニュー「表を挿入…」「リンクにする…」「リンクを編集…」のダイアログ（mdew の dialog\TableSizeDialog・LinkInputDialog と
 // 同じ見た目・項目）。mdevs では XAML をビルドしないため、画面はコードで組み立て、部品の見た目（DialogStyles.xaml）は
 // DLL に埋め込んだものを実行時に読み込む。
 
@@ -165,9 +165,12 @@ namespace mdevs.dialog
         public string Url { get; private set; } = "";
 
         /// <summary>ダイアログを作る（URL の欄を選択した状態にする）。</summary>
-        public LinkInputDialog()
+        /// <param name="a_url">入力欄に最初から入れておく URL（リンクを編集する時の、今のリンク先。新しく作る時は空）。</param>
+        /// <param name="a_edit">リンクを編集する時か（題名を「リンクを編集」にする）。</param>
+        public LinkInputDialog(string a_url = "", bool a_edit = false)
         {
-            DialogStyles.Apply(this, Text.T("リンク"), 380);
+            DialogStyles.Apply(this, a_edit ? Text.T("リンクを編集") : Text.T("リンク"), 380);
+            m_urlBox.Text = a_url ?? "";
             var panel = new StackPanel { Margin = new Thickness(22) };
             panel.Children.Add(DialogStyles.Heading(Text.T("リンク先のURLを入力してください")));
             panel.Children.Add(DialogStyles.Caption("URL"));
