@@ -38,7 +38,7 @@ features are the same in both styles.
 2. Open any `.md` or `.markdown` file from Solution Explorer or elsewhere. It opens in mdevs.
 3. Write, then save with `Ctrl+S`.
 
-Requires Visual Studio 2026 (version 18.0 or later, 64-bit). The editor uses the Microsoft Edge WebView2 Runtime
+Requires Visual Studio 2022 (version 17.14 or later) or Visual Studio 2026 (64-bit). The editor uses the Microsoft Edge WebView2 Runtime
 (included with Windows 11).
 
 To edit a file as plain text, right-click the file in Solution Explorer → **Open With...**, and choose

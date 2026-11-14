@@ -37,7 +37,7 @@ Visual Studio Code の Markdown プレビューの見た目が好みなら、オ
 2. `.md`・`.markdown` のファイルをソリューションエクスプローラー等から開くと、mdevs の編集画面で開きます。
 3. 書いたら `Ctrl+S` で保存します。
 
-対応する Visual Studio は Visual Studio 2026（バージョン 18.0 以降、64 ビット）です。編集画面の表示に Microsoft Edge
+対応する Visual Studio は Visual Studio 2022（バージョン 17.14 以降）と Visual Studio 2026 です（64 ビット）。編集画面の表示に Microsoft Edge
 WebView2 ランタイムを使います（Windows 11 には最初から入っています）。
 
 テキストとして編集したい時は、ソリューションエクスプローラーでファイルを右クリック→「ファイルを開くアプリケーションの
