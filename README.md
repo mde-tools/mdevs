@@ -1,29 +1,67 @@
-# mdevs — Edit Markdown right in the preview
+# mdevs — WYSIWYG Markdown Editor for Visual Studio
 
-**Write Markdown in Visual Studio the way you read it.** mdevs turns `.md` files into a page you edit directly:
-headings, lists, tables, and images take shape as you type. No source pane, no preview pane, no switching back and
-forth — and the file you save is still plain Markdown.
+**Edit Markdown right in the preview, the way you read it.** mdevs turns `.md` files into a page you edit
+directly: headings, lists, tables, check boxes, and images take shape as you type. No source pane, no side-by-side
+preview, no switching back and forth — and the file you save is still plain Markdown that diffs cleanly in Git.
 
 日本語の説明は [README.ja.md](https://github.com/mde-tools/mdevs/blob/master/README.ja.md) を参照してください。
 
 ![mdevs editing a Markdown document in GitHub style, with the outline, a table, a pasted image, and the context menu](https://raw.githubusercontent.com/mde-tools/mdevs/master/images/readme/editor-screen-gh-style_ENG.png)
 
-## Why mdevs
+## What makes mdevs different
 
 - **One view, what you see is what you save** — Type `## `, `**bold**`, `- `, or `|a|b|` and the formatting appears
   as soon as you finish the mark.
+- **Check boxes in table cells** — Start a cell with `[ ]` or `[x]` and it becomes a check box you can click. Turn
+  step-by-step test procedures, review sheets, and release checklists into one readable table instead of a long
+  bulleted list ([example](#checklists-in-a-table)).
+- **Tables that are easy to work with** — Column widths follow the content automatically, so there is no need to pad
+  cells with spaces. Tab / Enter move between cells, Shift+Enter breaks the line inside a cell, `Ctrl+Enter` adds a
+  row, and the right-click menu inserts or deletes rows and columns.
 - **Clean diffs** — Only the blocks you actually edit are rewritten. Everything else keeps its original spacing and
   line breaks, so opening and saving a file does not fill your Git diff with noise.
-- **Tables that are easy to work with** — Tab between cells, add rows with `Ctrl+Enter`, and insert or delete rows and
-  columns from the right-click menu.
 - **Paste screenshots** — `Ctrl+V` pastes an image; when you save, it is stored next to your file and linked with a
   relative path.
+  Right-click → **Image Size** resizes it (saved as a `width` attribute, so GitHub shows the same size).
 - **Works with Excel and Word** — Paste an Excel range to get a Markdown table. "Copy for Excel" sends headings,
   lists, and tables back to Excel one cell per line; normal copy pastes into Word with formatting.
 - **Still Visual Studio** — Save, undo, the unsaved-changes marker, Find and Replace, Find in Files, and your shortcuts
   behave as usual. An outline next to the document lets you jump through long documents.
 - **Two looks, light or dark** — GitHub style or VS Code preview style, following your Visual Studio color theme.
   English and Japanese UI.
+
+## Checklists in a table
+
+Here is how a release test plan comes together in mdevs.
+
+**1. Paste the test cases from Excel.** Copy the range in Excel and press `Ctrl+V` in mdevs: it becomes a Markdown
+table.
+
+![Test cases in Excel](https://raw.githubusercontent.com/mde-tools/mdevs/master/images/readme/checklist-excel-source_ENG.jpg)
+
+**2. Check off each step as you go.** Add an **OK** column (right-click a cell → **Insert Column Right**) and put `[ ]`
+in its cells. `[ ]` / `[x]` at the start of a cell becomes a check box you can click, and you can write notes on
+problems right next to it.
+
+![A release test checklist in mdevs, with check boxes in the OK column of the table and a checklist below it](https://raw.githubusercontent.com/mde-tools/mdevs/master/images/readme/checklist-table_ENG.png)
+
+The file stays a plain Markdown table, so it diffs cleanly (other apps such as GitHub show the cells as the text
+`[ ]` / `[x]`):
+
+```markdown
+| # | Area | Step | Expected result | OK | Notes |
+|---|---|---|---|---|---|
+| 1 | Install | Run the installer on a clean PC | The app starts after setup | [x] | |
+| 2 | Sign in | Sign in with a test account | The home screen is shown | [x] | |
+| 3 | Settings | Change the language to English<br>and restart the app | The menus stay in English | [x] | |
+| 4 | Export | Export a report as PDF | All pages are in the PDF | [ ] | Page 3 is blank (#128) |
+| 5 | Update | Install over v2.3 | The settings are kept | [ ] | |
+```
+
+**3. Share the results in Excel.** Select all (`Ctrl+A`), right-click → **Copy for Excel**, and paste into Excel.
+Headings, the table, and the check boxes (as ☑ / ☐) land one per cell, ready for a report.
+
+![The checklist pasted into Excel with Copy for Excel, with ☑ and ☐ in the OK column](https://raw.githubusercontent.com/mde-tools/mdevs/master/images/readme/checklist-excel-result_ENG.jpg)
 
 ## Choose your style
 
@@ -77,7 +115,7 @@ paragraph or heading to change the heading level.
 | Strikethrough / Highlight | `~~text~~` (`Alt+Shift+5`) / `==text==` |
 | Inline code | `` `text` `` |
 | Bulleted / numbered list | `- ` / `1. ` at the start of a line |
-| Check box | `[ ] ` or `[x] ` at the start of a list item |
+| Check box | `[ ] ` or `[x] ` at the start of a list item or a table cell |
 | Code block | ```` ``` ```` (optionally with a language) and Enter |
 | Horizontal rule | `---` and Enter |
 | Table | `\|Header 1\|Header 2\|` and Enter, or **Insert Table…** |
