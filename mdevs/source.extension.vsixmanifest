@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PackageManifest Version="2.0.0" xmlns="http://schemas.microsoft.com/developer/vsx-schema/2011" xmlns:d="http://schemas.microsoft.com/developer/vsx-schema-design/2011">
   <Metadata>
-    <Identity Id="mdevs.91f72ca7-7cd1-472b-98ba-20909b2c603c" Version="1.0.3.0" Language="en-US" Publisher="mde-tools" />
+    <Identity Id="mdevs.91f72ca7-7cd1-472b-98ba-20909b2c603c" Version="1.0.4.0" Language="en-US" Publisher="mde-tools" />
     <DisplayName>mdevs - WYSIWYG Markdown Editor for Visual Studio</DisplayName>
     <!-- 一行の説明は英語だけにする（Marketplace は、ここの日本語を「?」に化けさせて表示するため） -->
     <Description>WYSIWYG Markdown editor: edit Markdown files directly in the preview, with easy tables, check boxes in table cells, pasted images, and Excel copy and paste.</Description>
