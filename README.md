@@ -151,7 +151,7 @@ is moved into a `<file name>.images` folder next to the file (for example `clipb
 link is written into the document. With Save As to another folder, images with relative paths are copied so that they
 stay at the same relative location.
 Right-click an image → **Image Size** to resize it (25% to 200% of the original). The size is saved as a `width`
-attribute, so it looks the same on GitHub and in Typora.
+attribute, so it looks the same on GitHub and in other Markdown apps.
 
 Links open with a single click: web links in your browser, `#heading` links inside the document, and relative links to
 other Markdown files in a new Visual Studio tab.
