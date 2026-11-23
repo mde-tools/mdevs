@@ -1,4 +1,4 @@
-# mdevs — WYSIWYG Markdown Editor for Visual Studio
+# Markdown Editor - mdevs (WYSIWYG)
 
 **Edit Markdown right in the preview, the way you read it.** mdevs turns `.md` files into a page you edit
 directly: headings, lists, tables, check boxes, and images take shape as you type. No source pane, no side-by-side

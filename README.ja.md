@@ -1,4 +1,4 @@
-# mdevs — Visual Studio でプレビューのまま編集できる WYSIWYG Markdown エディタ
+# Markdown Editor - mdevs (WYSIWYG)
 
 **読むときと同じ見た目のまま、Visual Studio で Markdown を書けます。** mdevs は `.md` ファイルを、そのまま編集できる
 ページとして開きます。見出し・箇条書き・表・チェックボックス・画像は入力したそばから整形されます。ソースと
